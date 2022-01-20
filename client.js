@@ -1,4 +1,3 @@
-
 const net = require("net");
 const connect = function () {
   const conn = net.createConnection({
@@ -14,6 +13,29 @@ const connect = function () {
   });
 
   return conn;
+};
+const handleUserInput = function (specKey) {
+// \u0003 maps to ctrl+c input
+if (specKey === '\u0003') {
+  process.exit();
+}
+else if (specKey === "s") {
+ 
+  connection.write("Move: down")
+} 
+else if (specKey === "w") {
+  
+  connection.write("Move: up")
+}
+else if (specKey === "d") {
+  
+  connection.write("Move: right")
+}
+else if (specKey === "a") {
+  
+  connection.write("Move: left")
+}
+else {console.log ('enjoy no command!')};
 };
 
 module.exports = { connect };
